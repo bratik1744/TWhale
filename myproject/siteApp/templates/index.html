@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Рекомендательная инвестиционная платформа</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'css/styles.css' %}?v={{ timestamp }}">
+</head>
+
+
+<body>
+
+<!-- Navigation bar -->
+<nav class="navbar navbar-expand-lg navbar-custom">
+  <div class="container-fluid">
+    {% load static %}
+    <a class="navbar-brand" href="#"><img src="{% static 'img/logo.png' %}" alt="Logo" style="width: 75px; height: 75px;"></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav me-auto">
+        <li class="nav-item">
+          <a class="nav-link butt" href="#">О нас</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link butt" href="#">Трейдинг</a>
+        </li>
+      </ul>
+      <a class="nav-link registration ms-auto" href="#">Личный кабинет</a>
+    </div>
+  </div>
+</nav>
+
+<!-- Main content -->
+<div class="container mt-4">
+  <div class="row">
+    <div class="col-md-3">
+      <div class="content-box">
+        <input type="text" class="form-control mb-3" id="searchFilter" placeholder="Поиск и фильтрация">
+        <ul class="list-group" id="tickerList">
+          {% for element in elements %}
+            <li class="list-group-item">{{ element }}</li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+    <div class="col-md-9">
+      <div class="content-box">
+        <input type="text" class="form-control mb-3" id="newsSearchFilter" placeholder="Поиск и фильтрация">
+        <div id="newsFeed">
+          <h5>Новости</h5>
+          <p>Здесь будут новости, связанные с инвестициями.</p>
+          <!-- Добавьте больше новостей здесь -->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="script.js"></script>
+</body>
+</html>

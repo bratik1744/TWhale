@@ -35,6 +35,16 @@ A platform for investment recommendations.
   - [ ] Обучить основную нейросеть с модулем NLP
   - [ ] Построить стратегии на основе мультимодальных моделей
 
+## список разработчиков:
+| Имя      | Фамилия   | GitHub                                                    |
+|----------|-----------|-----------------------------------------------------------|
+| Стукун   | Даниил    | [bratik1744](https://github.com/bratik1744)               |
+| Баранов  | Александр | [butuzz](https://github.com/butuzzz)                      |
+| Эмир     | Шагеев    | [terasXgod](https://github.com/terasXgod)                 |
+| Артём    | Голубцов  | [artygol](https://github.com/artygol)                     |
+| Касымхан | Хубиев    | [Kasymkhankhubiyev](https://github.com/Kasymkhankhubiyev) |
+
+
 <p align="center">
   <img height="300" width="300" src="https://github.com/bratik1744/TWhale/blob/main/additional_files/ton.jpg" />
   <img height="300" width="300" src="https://github.com/bratik1744/TWhale/blob/main/additional_files/logo_new.png" />

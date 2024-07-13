@@ -1,21 +1,24 @@
+{% load custom_tags %}
+{% load static %}
 <!DOCTYPE html>
 <html lang="ru">
 <head>
   <title>Рекомендательная инвестиционная платформа</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" href="{% static ' img/favicon/favicon.ico' %}">
+  <link rel="apple-touch-icon" href="{% static ' img/favicon/apple-touch-icon.png' %}">
+  <link rel="android-chrome-512x512" href="{% static ' img/favicon/android-chrome-512x512.png' %}">
+  <link rel="android-chrome-192x192" href="{% static ' img/favicon/android-chrome-192x192.png' %}">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  {% load static %}
+
   <link rel="stylesheet" href="{% static 'css/styles.css' %}?v={{ timestamp }}">
 </head>
 
-
 <body>
-
 <!-- Navigation bar -->
 <nav class="navbar navbar-expand-lg navbar-custom">
   <div class="container-fluid">
-    {% load static %}
     <a class="navbar-brand" href="#"><img src="{% static 'img/logo.png' %}" alt="Logo" style="width: 75px; height: 75px;"></a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -35,6 +38,75 @@
 </nav>
 
 <!-- Main content -->
+<div class="container mt-4 main-part">
+  <div class="row">
+    <div class="col-md-3">
+      <div class="content-box">
+        <input type="text" onkeyup="filterList()" class="form-control mb-3" id="searchFilter" placeholder="Поиск и фильтрация">
+        <div class="list-group d-flex flex-column" id="tickerList">
+          {% for element in elements %}
+              <a href="{% url 'ticker_detail' element %}" class="list-group-item hover-element" data-bs-toggle="tooltip" data-description="{{ info_sec|get_item:element }}" title="{{ info_sec|get_item:element }}">{{ element }}</a>
+          {% endfor %}
+        </div>
+        
+      </div>
+    </div>
+    <div class="col-md-9">
+      <div class="content-box">
+        <input type="text" class="form-control mb-3" id="newsSearchFilter" placeholder="Поиск и фильтрация">
+        <div id="newsFeed">
+          <h4>Новости</h4>
+          <h5>Акции «Газпрома» и НОВАТЭКа в лидерах, цены на нефть: дайдждест инвестора</h5>
+          <img src="{% static 'img/GAZP_new1.png' %}" style="width: 400px; height: 368px; margin-bottom: 15px;">
+          <h6>Акции «Газпрома» и НОВАТЭКа выбились в лидеры торгов по итогам 2 июля. Бумаги дорожают после сильной коррекции в предыдущие месяцы. Стоимость нефти Brent во вторник впервые за два месяца подскочила выше $87 за баррель.</h6>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="{% static 'js/scripts.js' %}"></script>
+</body>
+</html>
+
+
+
+<!-- {% load custom_tags %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Рекомендательная инвестиционная платформа</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'css/styles.css' %}?v={{ timestamp }}">
+</head>
+
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-custom">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#"><img src="{% static 'img/logo.png' %}" alt="Logo" style="width: 75px; height: 75px;"></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav me-auto">
+        <li class="nav-item">
+          <a class="nav-link butt" href="#">О нас</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link butt" href="#">Трейдинг</a>
+        </li>
+      </ul>
+      <a class="nav-link registration ms-auto" href="#">Личный кабинет</a>
+    </div>
+  </div>
+</nav>
+
+
 <div class="container mt-4">
   <div class="row">
     <div class="col-md-3">
@@ -42,7 +114,10 @@
         <input type="text" class="form-control mb-3" id="searchFilter" placeholder="Поиск и фильтрация">
         <ul class="list-group" id="tickerList">
           {% for element in elements %}
-            <li class="list-group-item">{{ element }}</li>
+            <li class="list-group-item hover-element">
+              {{ element }}
+              <div class="tooltip" data-info="{{ info|get_item:element }}"></div>
+            </li>
           {% endfor %}
         </ul>
       </div>
@@ -53,14 +128,27 @@
         <div id="newsFeed">
           <h5>Новости</h5>
           <p>Здесь будут новости, связанные с инвестициями.</p>
-          <!-- Добавьте больше новостей здесь -->
         </div>
       </div>
     </div>
   </div>
 </div>
-
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-<script src="script.js"></script>
+ <script src="{% static 'js/scripts.js' %}"></script>
+<script>document.addEventListener('DOMContentLoaded', function() {
+  const hoverElements = document.querySelectorAll('.hover-element');
+  hoverElements.forEach(element => {
+      element.addEventListener('mouseover', function() {
+          const tooltip = this.querySelector('.tooltip');
+          tooltip.style.display = 'block';
+      });
+
+      element.addEventListener('mouseout', function() {
+          const tooltip = this.querySelector('.tooltip');
+          tooltip.style.display = 'none';
+      });
+  });
+});
+</script>
 </body>
-</html>
+</html> -->

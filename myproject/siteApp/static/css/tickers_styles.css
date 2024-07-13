@@ -1,0 +1,142 @@
+body {
+    color: #fff
+}
+
+
+.navbar-custom {
+    background-color: #131F2B;
+}
+
+a.registration {
+    background-color: #fec501;
+    border-radius: 12px;
+    color: #131F2B;
+    padding: 10px;
+    margin-left: auto;
+}
+
+.list-group-item {
+    padding: 10px;
+    border: 1px solid #fec501;
+    color: #fff;
+    text-align: center;
+    position: relative;
+    cursor: pointer;
+    max-height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #131F2B;
+}
+
+.fmrotf {
+    display: none;
+    background-color: green;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    z-index: 1000;
+    white-space: nowrap;
+}
+
+.list-group-item:hover .fmrotf {
+    display: block;
+}
+
+.navbar-custom .nav-link {
+    font-family: 'Roboto', Arial, sans-serif;
+    font-size: 24px;
+    text-decoration: none;
+    margin-left: 1rem;
+}
+
+.butt {
+    color: #ffffff;
+}
+
+
+/* .main-part {
+    background: #fff;
+} */
+
+body {
+    background: #283a4d;
+}
+
+::-webkit-scrollbar {
+    border-radius: 10px;
+}
+
+a.butt:hover {
+    color: #fec501;
+}
+
+.navbar-brand {
+    margin-right: 1rem;
+}
+
+.content-box {
+    border: 2px solid #fec501;
+    border-radius: 15px;
+    padding: 20px;
+    text-align: center;
+    margin-top: 20px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    height: 500px;
+}
+
+
+
+
+.news {
+    color: #fff;
+}
+
+*[tooltip]:hover:after {
+    content: attr(tooltip);
+    background-color: green;
+    color: white;
+    padding: 5px 30px;
+    max-width: 200px;
+    position: absolute;
+    left: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 16px;
+    z-index: 9999;
+    white-space: nowrap;
+}
+
+@media (max-width: 992px) {
+    .navbar-custom .nav-link {
+        font-size: 20px;
+        margin-left: 0.5rem;
+    }
+    a.registration {
+        padding: 8px;
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 768px) {
+    .navbar-custom .nav-link {
+        font-size: 18px;
+        margin-left: 0.25rem;
+    }
+    a.registration {
+        padding: 6px;
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 576px) {
+    .navbar-custom .nav-link {
+        font-size: 16px;
+        margin-left: 0.1rem;
+    }
+    a.registration {
+        padding: 4px;
+        font-size: 14px;
+    }
+}

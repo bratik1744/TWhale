@@ -4,7 +4,7 @@ A platform for investment recommendations.
 <h3>Или через крипту (toncoin): UQARHu641RuRormYSg2DPqkNIoDiol9U8QaaS5Y04EEHEn1E</h3>
 <p align="center">
   <img height="300" width="300" src="https://github.com/bratik1744/TWhale/blob/main/additional_files/ton.jpg" />
-  <img height="300" width="300" src="https://github.com/bratik1744/TWhale/blob/main/additional_files/logo.png" />
+  <img height="300" width="300" src="https://github.com/bratik1744/TWhale/blob/main/additional_files/logo_new.png" />
 </p>
 
 
